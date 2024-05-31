@@ -45,16 +45,44 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
-    for (let i = 0; i < 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        outcome = playRound(humanSelection, computerSelection);
-        if (outcome == -1) {
-            computerScore++;
-        } else if (outcome == 1) {
-            humanScore++;
-        }
-    }
+    const body = document.querySelector("body");
+
+    const rock = document.createElement("button");
+    rock.textContent = "rock";
+
+    const paper = document.createElement("button");
+    paper.textContent = "paper";
+
+    const scissors = document.createElement("button");
+    scissors.textContent = "scissors";
+
+    body.appendChild(rock);
+    
+    rock.addEventListener('click', () => {
+        const humanSelection = 'rock';
+    });
+
+    paper.addEventListener('click', () => {
+        const humanSelection = 'paper';
+    });
+
+    scissors.addEventListener('click', () => {
+        const humanSelection = 'scissors';
+    });
+
+
+
+    // Play five rounds
+    // for (let i = 0; i < 5; i++) {
+    //     const humanSelection = getHumanChoice();
+    //     const computerSelection = getComputerChoice();
+    //     outcome = playRound(humanSelection, computerSelection);
+    //     if (outcome == -1) {
+    //         computerScore++;
+    //     } else if (outcome == 1) {
+    //         humanScore++;
+    //     }
+    // }
 
     if (humanScore > computerScore) {
         console.log(`You won with a score of ${humanScore} against ${computerScore}`);
